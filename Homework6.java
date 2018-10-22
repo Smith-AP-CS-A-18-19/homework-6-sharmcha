@@ -3,21 +3,42 @@ public class Homework6 {
 	/* Finish the constructor and create any necessary instance
 	 * variables
 	 */
-	public Homework6(String s, int a, int b, int c) {
+	private String string;
+	private int num1;
+	private int num2;
+	private int num3;
 
+	public Homework6(String s, int a, int b, int c) {
+		string = s;
+		num1 = a;
+		num2 = b;
+		num3 = c;
 	}
 
 	/* Return true if the stored String comes before the provided
 	 * String lexicographically, return false if it does not
 	 */
-	public boolen isBefore(String other) {
-
+	public boolean isBefore(String other) {
+		if (string.compareTo(other)>0) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	/* Return the maximum of the stored integers
 	 */
 	public int max() {
-
+		if (num1>num2 && num1>num3) {
+			return num1;
+		}
+		else if (num2>num1 && num2>num3) {
+			return num2;
+		}
+		else {
+			return num3;
+		}
 	}
 
 	/* Return the middle value of the stored integers. If two numbers
@@ -26,6 +47,18 @@ public class Homework6 {
 	 * to receive full credit
 	 */
 	public int mid() {
+		if ((max() == num2 && num1<num3) || (max() == num3 && num1>num2)) {
+			return num1;
+		}
+		else if ((max() == num3 && num2>num1) || (max() == num1 && num2>num3)) {
+			return num2;
+		}
+		else if ((max() == num1 && num3>num2) || (max() == num2 && num3>num1)) {
+			return num3;
+		}
+		else {
+			return num1;
+		}
 
 	}
 
@@ -35,7 +68,12 @@ public class Homework6 {
 	 * >= or =<; instead use < or > and invert them with !
 	 */
 	public boolean isAscending() {
-
+		if (!(num1>num2) && !(num2>num3)) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	public static void main(String[] args) {
@@ -87,5 +125,5 @@ public class Homework6 {
 
 		System.exit(exitCode);
 	}
-	
+
 }
